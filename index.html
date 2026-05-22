@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>LegacyWealth | Protect. Grow. Legacy.</title>
+  <!-- Google Fonts + simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a2c3e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* navigation */
+    .navbar {
+      padding: 20px 0;
+      border-bottom: 1px solid #eef2f5;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(0px);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0b2b40 0%, #1e6f5c 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c4b5c;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #1e6f5c;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid #1e6f5c;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1e6f5c;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-light:hover {
+      background: #1e6f5c10;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: #1e6f5c;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #0f5545;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30,111,92,0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid #cbdbe0;
+      padding: 11px 27px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #2c4b5c;
+      transition: 0.2s;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: #1e6f5c;
+      color: #1e6f5c;
+      background: #f9fcfb;
+    }
+
+    /* hero */
+    .hero {
+      padding: 70px 0 80px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #e2f0ed;
+      color: #1e6f5c;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #0a2b36;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4a6272;
+      margin-bottom: 32px;
+      max-width: 550px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      flex: 0.9;
+      background: #f8fbfa;
+      padding: 32px;
+      border-radius: 32px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02), 0 8px 10px -6px rgba(0,0,0,0.02);
+    }
+
+    .stat-item {
+      margin-bottom: 24px;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1e6f5c;
+    }
+
+    /* services section */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #0a2b36;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      color: #5f7f92;
+      font-size: 1.1rem;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 28px;
+      flex: 1;
+      min-width: 240px;
+      box-shadow: 0 8px 28px -6px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 1px solid #eef2f0;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(30,111,92,0.12);
+      border-color: #cde3dd;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #546e7a;
+      margin-bottom: 24px;
+    }
+
+    .card-link {
+      font-weight: 600;
+      color: #1e6f5c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* why us */
+    .whyus {
+      background: #f6faf9;
+      border-radius: 48px;
+      margin: 20px 0;
+    }
+
+    .whyus-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      padding: 48px 40px;
+    }
+
+    .whyus-text {
+      flex: 1;
+    }
+
+    .whyus-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .whyus-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .whyus-list li {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .check {
+      background: #1e6f5c20;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e6f5c;
+      font-weight: bold;
+    }
+
+    .testimonial {
+      flex: 1;
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    /* steps */
+    .steps-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .step {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid #eef2f0;
+    }
+
+    .step-number {
+      background: #1e6f5c;
+      color: white;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 0 auto 20px;
+    }
+
+    /* CTA banner */
+    .cta-banner {
+      background: linear-gradient(115deg, #0c3542 0%, #1e6f5c 100%);
+      border-radius: 48px;
+      padding: 56px 40px;
+      text-align: center;
+      color: white;
+      margin: 40px 0 60px;
+    }
+
+    .cta-banner h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .cta-banner .btn-primary {
+      background: white;
+      color: #1e6f5c;
+      margin-top: 24px;
+      box-shadow: none;
+    }
+
+    .cta-banner .btn-primary:hover {
+      background: #f0fdfa;
+      transform: scale(1.02);
+    }
+
+    /* footer */
+    footer {
+      background: #0a2b36;
+      color: #ccdfe6;
+      padding: 48px 0 24px;
+      border-radius: 32px 32px 0 0;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      margin-bottom: 18px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #bcd3dd;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .risk {
+      font-size: 0.75rem;
+      border-top: 1px solid #2b5568;
+      padding-top: 24px;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .nav-flex {
+        flex-direction: column;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">LegacyWealth<span style="color:#1e6f5c;">+</span></div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#whyus">Why Us</a>
+      <a href="#steps">How it works</a>
+      <a href="#" class="btn-outline-light" id="contactNavBtn">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Trusted financial guidance since 2012</div>
+        <h1>Protect. Grow.<br>Legacy.</h1>
+        <p>We help you choose the right insurance, build wealth with unit trusts, and secure your family’s future with wills & trusts — all in one place.</p>
+        <div class="hero-buttons">
+          <button class="btn-primary" id="mainCtaBtn">Plan my future →</button>
+          <button class="btn-secondary" id="exploreBtn">Explore services</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-number">500+</div><div>Families protected</div></div>
+        <div class="stat-item"><div class="stat-number">RM 85M+</div><div>Assets under advisory</div></div>
+        <div class="stat-item"><div class="stat-number">98%</div><div>Client retention rate</div></div>
+        <div style="font-size:0.85rem; margin-top:8px;">✔️ Licensed by Securities Commission & Bank Negara</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three Service Pillars -->
+  <div class="container section" id="services">
+    <div class="section-title">Integrated financial peace of mind</div>
+    <div class="section-sub">Insurance · Will & Trust · Unit Trust — one holistic approach</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Insurance Products</h3>
+        <p>Life, medical, critical illness, income protection. Tailored coverage that fits your family's real needs.</p>
+        <a href="#" class="card-link" id="insureLink">Find coverage →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Will & Trust Services</h3>
+        <p>Protect your assets, avoid probate delays, and ensure your legacy is honored exactly as you wish.</p>
+        <a href="#" class="card-link" id="willLink">Secure legacy →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Unit Trust</h3>
+        <p>Professionally managed diversified funds. Growth potential with regular reviews and rebalancing.</p>
+        <a href="#" class="card-link" id="utLink">Start investing →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Us + testimonial section -->
+  <div class="container" id="whyus">
+    <div class="whyus">
+      <div class="whyus-inner">
+        <div class="whyus-text">
+          <h2>Why families choose us</h2>
+          <ul class="whyus-list">
+            <li><span class="check">✓</span> Truly independent advice — no hidden commission bias</li>
+            <li><span class="check">✓</span> Holistic planning across insurance, investments & legacy</li>
+            <li><span class="check">✓</span> Annual portfolio & insurance reviews included</li>
+            <li><span class="check">✓</span> Fiduciary commitment: your goals first</li>
+          </ul>
+        </div>
+        <div class="testimonial">
+          <p>“LegacyWealth didn’t just sell me a policy — they redesigned my entire financial safety net. They set up a trust for my children, reviewed my old ILP, and started a unit trust for education. Genuinely life‑changing.”</p>
+          <div style="font-weight:700">— Mei Ling Tan, Kuala Lumpur</div>
+          <div style="font-size:0.85rem; margin-top:6px;">Client since 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Steps -->
+  <div class="container section" id="steps">
+    <div class="section-title">Your journey to financial clarity</div>
+    <div class="section-sub">Simple, transparent, no pressure — just guidance</div>
+    <div class="steps-flex">
+      <div class="step"><div class="step-number">1</div><h3>Free discovery call</h3><p>30-min chat about your goals, concerns & current protection gaps.</p></div>
+      <div class="step"><div class="step-number">2</div><h3>Personal blueprint</h3><p>We deliver a plan: insurance review, trust structure, investment allocation.</p></div>
+      <div class="step"><div class="step-number">3</div><h3>Implementation</h3><p>We help with applications, fund selection, and legal documentation.</p></div>
+      <div class="step"><div class="step-number">4</div><h3>Ongoing support</h3><p>Annual check‑ins, rebalancing, and legacy updates.</p></div>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Start your financial health check →</h2>
+      <p style="margin-bottom:0; opacity:0.9;">Limited slots for complimentary consultation this month.</p>
+      <button class="btn-primary" id="ctaBannerBtn">Book my free consultation →</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>LegacyWealth+</h4>
+        <p>📍 Suite 12-03, Menara Integrated<br>Kuala Lumpur, Malaysia</p>
+        <p>📞 +603 2380 1234</p>
+        <p>✉️ hello@legacywealth.my</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <p>Insurance Advisory</p>
+        <p>Will & Trust Planning</p>
+        <p>Unit Trust Investment</p>
+        <p>Estate Administration</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p>Disclaimers</p>
+        <p>Privacy Policy</p>
+        <p>Licensing Info: SC License eCMSL/A0351</p>
+      </div>
+    </div>
+    <div class="risk">
+      <strong>Investment Risk Warning:</strong> Unit trusts involve risk, including possible loss of principal. Past performance is not indicative of future returns. Please read prospectus before investing. This website is for informational purposes and does not constitute financial advice.
+    </div>
+    <div class="risk" style="margin-top: 8px;">© 2025 LegacyWealth+ Financial Planning. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- simple JS: interactive alerts and smooth scroll -->
+<script>
+  // Helper: show a simple custom alert simulation (non-intrusive but informative)
+  function showMessage(serviceName) {
+    alert(`✨ You've selected ${serviceName}. Our advisor will reach out within 24h with tailored details.\n\n(On the live site, this would open a dedicated form or calendar.)`);
+  }
+
+  // CTA button main
+  const mainCta = document.getElementById('mainCtaBtn');
+  if (mainCta) {
+    mainCta.addEventListener('click', () => {
+      showMessage('a financial planning session');
+    });
+  }
+
+  // explore button: scroll to services
+  const exploreBtn = document.getElementById('exploreBtn');
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', () => {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // service card links
+  const insureLink = document.getElementById('insureLink');
+  if (insureLink) {
+    insureLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('Insurance Products');
+    });
+  }
+  const willLink = document.getElementById('willLink');
+  if (willLink) {
+    willLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('Will & Trust Services');
+    });
+  }
+  const utLink = document.getElementById('utLink');
+  if (utLink) {
+    utLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('Unit Trust Advisory');
+    });
+  }
+
+  // banner cta
+  const bannerBtn = document.getElementById('ctaBannerBtn');
+  if (bannerBtn) {
+    bannerBtn.addEventListener('click', () => {
+      showMessage('a complimentary financial health check');
+    });
+  }
+
+  // contact nav btn
+  const contactNav = document.getElementById('contactNavBtn');
+  if (contactNav) {
+    contactNav.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📅 Get in touch: hello@legacywealth.my or call +603 2380 1234. We'll reply within one business day.");
+    });
+  }
+
+  // Optional: scroll to top after any internal hash? no, but we also add smooth anchor for internal nav consistency
+  // also monitor any service card 'Find coverage' etc will not break
+  // extra: additional logging for better UX
+  console.log("LegacyWealth frontpage ready — compliant with trust & financial planning best practices");
+</script>
+
+<!-- additional note for real implementation: forms/calendly would replace alert -->
+</body>
+</html>
